@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
     public float spawnWait;
     public float startWait;
     public float waveWait;
+    public AudioClip musicClipOne;
+    public AudioClip musicClipTwo;
+    public AudioSource musicSource;
 
     public Text scoreText;
     public Text restartText;
@@ -45,6 +48,13 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKey("escape"))
             Application.Quit();
+
+        if (score >= 100)
+        {
+
+            musicSource.clip = musicClipOne;
+            musicSource.Play();
+        }
     }
 
     IEnumerator SpawnWaves ()
@@ -67,6 +77,8 @@ public class GameController : MonoBehaviour
                 restartText.text = "Press 'U' for Restart";
                 restart = true;
                 break;
+                //musicSource.clip = musicClipTwo;
+                //musicSource.Play();
             }
         }
     }

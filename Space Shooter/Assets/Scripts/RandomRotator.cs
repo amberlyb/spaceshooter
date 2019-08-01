@@ -13,4 +13,12 @@ public class RandomRotator : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.angularVelocity = Random.insideUnitSphere * tumble;
     }
+    void FixedUpdate()
+    {
+         if (Input.GetKeyDown(KeyCode.H))
+          {
+             rb = GetComponent<Rigidbody>();
+             rb.angularVelocity = Random.insideUnitSphere * tumble;
+          }
+    }
 }
