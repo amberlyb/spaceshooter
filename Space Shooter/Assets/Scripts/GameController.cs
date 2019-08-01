@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
         score = 0;
         UpdateScore();
         StartCoroutine (SpawnWaves ());
+        musicSource.Play();
     }
 
     void Update ()
@@ -51,8 +52,7 @@ public class GameController : MonoBehaviour
 
         if (score >= 100)
         {
-
-            musicSource.clip = musicClipOne;
+            musicSource.clip = musicClip;
             musicSource.Play();
         }
     }
