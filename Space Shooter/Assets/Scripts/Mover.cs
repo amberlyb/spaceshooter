@@ -13,12 +13,12 @@ public class Mover : MonoBehaviour
           rb.velocity = transform.forward * speed;
      }
 
-     void Update ()
+     void FixedUpdate ()
      {
-          if (Input.GetKeyDown(KeyCode.H))
+          if (Input.GetKey(KeyCode.H))
           {
                rb = GetComponent<Rigidbody>();
-               rb.velocity = transform.forward * speed * 2;
+               rb.velocity = transform.forward * speed * 3;
           }
      }
 }

@@ -16,6 +16,10 @@ public class GameController : MonoBehaviour
     public AudioClip musicClipTwo;
     public AudioSource musicSource;
 
+    public ParticleSystem ps1;
+    public ParticleSystem ps2;
+    public int Speed;
+
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
@@ -35,7 +39,6 @@ public class GameController : MonoBehaviour
         score = 0;
         UpdateScore();
         StartCoroutine (SpawnWaves ());
-        musicSource.Play();
     }
 
     void Update ()
@@ -49,12 +52,6 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKey("escape"))
             Application.Quit();
-
-        if (score >= 100)
-        {
-            musicSource.clip = musicClip;
-            musicSource.Play();
-        }
     }
 
     IEnumerator SpawnWaves ()
@@ -77,12 +74,10 @@ public class GameController : MonoBehaviour
                 restartText.text = "Press 'U' for Restart";
                 restart = true;
                 break;
-                //musicSource.clip = musicClipTwo;
-                //musicSource.Play();
             }
         }
     }
-
+  
     public void AddScore(int newScoreValue)
     {
         score += newScoreValue;
@@ -92,10 +87,12 @@ public class GameController : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = "Points: " + score;
-        if (score >= 100)
+        if (score >= 10)
         {
             winText.text = "You win! Game created by Amberly Brewster";
             gameOver = true;
+            musicSource.clip = musicClipOne;
+            musicSource.Play();
         }
     }
 
@@ -103,5 +100,9 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over! Game created by Amberly Brewster";
         gameOver = true;
+        musicSource.clip = musicClipTwo;
+        musicSource.Play();
     }
+
+    
 }

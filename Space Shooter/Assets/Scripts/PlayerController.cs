@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
      public float fireRate;
 
      private float nextFire;
+     private int score;
 
      public AudioSource musicSource;
 
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
              Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
              musicSource.Play ();
          }
+         
      }
 
      void FixedUpdate()

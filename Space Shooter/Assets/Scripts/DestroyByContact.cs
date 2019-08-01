@@ -28,6 +28,11 @@ public class DestroyByContact : MonoBehaviour
             return;
         }
 
+        if (other.gameObject.CompareTag("Pick Ups"))
+        {
+            other.gameObject.SetActive(false);
+        }
+
         if (explosion != null)
         {
             Instantiate (explosion, transform.position, transform.rotation);
