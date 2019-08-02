@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
      private void Start()
      {
           rb = GetComponent<Rigidbody>();
+          score = 0;
      }
 
      void Update()
@@ -56,5 +57,13 @@ public class PlayerController : MonoBehaviour
           );
 
           rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
+     }
+
+     void OnTriggerEnter(Collider other)
+     {
+          if (score == 10) 
+          {
+            transform.position = new Vector3 (35.0f, transform.position.y);
+          }
      }
 }

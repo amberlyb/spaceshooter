@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     public ParticleSystem ps2;
     public int Speed;
 
+    public Text hardText;
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
@@ -36,6 +37,7 @@ public class GameController : MonoBehaviour
         restartText.text = "";
         gameOverText.text = "";
         winText.text = "";
+        hardText.text = "";
         score = 0;
         UpdateScore();
         StartCoroutine (SpawnWaves ());
@@ -86,8 +88,9 @@ public class GameController : MonoBehaviour
 
     void UpdateScore()
     {
+        hardText.text = "For Hard Mode, hold 'H'";
         scoreText.text = "Points: " + score;
-        if (score >= 10)
+        if (score >= 100)
         {
             winText.text = "You win! Game created by Amberly Brewster";
             gameOver = true;

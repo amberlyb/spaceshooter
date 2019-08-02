@@ -11,14 +11,17 @@ public class Mover : MonoBehaviour
      {
           rb = GetComponent<Rigidbody>();
           rb.velocity = transform.forward * speed;
+                   
+     
      }
 
-     void FixedUpdate ()
-     {
-          if (Input.GetKey(KeyCode.H))
+   void OnTriggerEnter (Collider other)
+   {
+ if (Input.GetKey(KeyCode.H))
           {
                rb = GetComponent<Rigidbody>();
-               rb.velocity = transform.forward * speed * 3;
+               rb.velocity =  transform.forward * (speed * 3);
           }
-     }
+   }
+
 }
